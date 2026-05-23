@@ -1,0 +1,44 @@
+pipeline:
+  name: docker-ecr-pipeline2
+  identifier: dockerecrpipeline2
+  projectIdentifier: default_project
+  orgIdentifier: default
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: account.Github_OAuth_1779478413335
+        repoName: anupam-bkp/hello-world-docker.git
+        build: <+input>
+  stages:
+    - stage:
+        name: build
+        identifier: build
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          caching:
+            enabled: true
+            override: true
+          buildIntelligence:
+            enabled: true
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  type: BuildAndPushECR
+                  name: BuildAndPushECR_1
+                  identifier: BuildAndPushECR_1
+                  spec:
+                    connectorRef: awsecrconnector1
+                    region: ap-south-2
+                    account: "500766168750"
+                    imageName: learner/hello-world-docker
+                    tags:
+                      - updated
