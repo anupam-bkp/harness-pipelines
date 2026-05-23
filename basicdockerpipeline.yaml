@@ -1,0 +1,62 @@
+pipeline:
+  name: basic-docker-pipeline
+  identifier: basicdockerpipeline
+  projectIdentifier: default_project
+  orgIdentifier: default
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: account.Github_OAuth_1779478413335
+        repoName: anupam-bkp/hello-world-docker.git
+        build: <+input>
+  stages:
+    - stage:
+        name: build
+        identifier: build
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          caching:
+            enabled: true
+            override: true
+          buildIntelligence:
+            enabled: true
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec:
+              imageSpec:
+                imageName: ubuntu-latest
+          execution:
+            steps:
+              - step:
+                  type: Action
+                  name: Setup JDK 21
+                  identifier: Setup_JDK_21
+                  spec:
+                    uses: actions/setup-java@v3
+                    with:
+                      distribution: temurin
+                      java-version: "21"
+              - step:
+                  type: Run
+                  name: build_java_jar
+                  identifier: Run_1
+                  spec:
+                    shell: Sh
+                    command: |-
+                      # Verify Java and Maven installation
+                      java -version
+                      mvn -version
+                      mvn clean package -Dmaven.compiler.source=21 -Dmaven.compiler.target=21 -Dmaven.compiler.release=21
+              - step:
+                  type: Run
+                  name: build_docker_image
+                  identifier: build_docker_image
+                  spec:
+                    shell: Sh
+                    command: docker build -t hello-world-docker:basic .
