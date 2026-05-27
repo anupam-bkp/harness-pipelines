@@ -41,4 +41,4 @@ pipeline:
                     account: "500766168750"
                     imageName: learner/hello-world-docker
                     tags:
-                      - updated
+                      - latest
