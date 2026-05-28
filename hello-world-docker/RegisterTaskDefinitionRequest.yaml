@@ -1,5 +1,5 @@
 ipcMode:
-executionRoleArn: <Role ARN>
+executionRoleArn: arn:aws:iam::500766168750:role/service-role/ecsTaskExecutionRole
 containerDefinitions:
 - dnsSearchDomains:
  environmentFiles:
