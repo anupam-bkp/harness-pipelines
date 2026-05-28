@@ -1,0 +1,47 @@
+pipeline:
+  name: hello-world-docker-ecs-deploy
+  identifier: helloworlddockerecsdeploy
+  projectIdentifier: default_project
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: ecs-deploy
+        identifier: ecsdeploy
+        description: ""
+        type: Deployment
+        spec:
+          deploymentType: ECS
+          service:
+            serviceRef: helloworlddockerserviceharness
+            gitBranch: main
+          environment:
+            environmentRef: Staging
+            gitBranch: main
+            deployToAll: false
+            infrastructureDefinitions:
+              - identifier: helloworlddockerinfra
+          execution:
+            steps:
+              - step:
+                  name: ECS Rolling Deploy
+                  identifier: ecsRollingDeploy
+                  type: EcsRollingDeploy
+                  timeout: 10m
+                  spec:
+                    sameAsAlreadyRunningInstances: false
+                    forceNewDeployment: false
+            rollbackSteps:
+              - step:
+                  name: ECS Rolling Rollback
+                  identifier: ecsRollingRollback
+                  type: EcsRollingRollback
+                  timeout: 10m
+                  spec: {}
+        tags: {}
+        failureStrategies:
+          - onFailure:
+              errors:
+                - AllErrors
+              action:
+                type: StageRollback
