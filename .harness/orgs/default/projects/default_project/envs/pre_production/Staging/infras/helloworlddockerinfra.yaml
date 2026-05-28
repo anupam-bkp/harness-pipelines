@@ -1,0 +1,13 @@
+infrastructureDefinition:
+  name: hello-world-docker-infra
+  identifier: helloworlddockerinfra
+  orgIdentifier: default
+  projectIdentifier: default_project
+  environmentRef: Staging
+  deploymentType: ECS
+  type: ECS
+  spec:
+    connectorRef: awsecrconnector
+    region: ap-south-2
+    cluster: arn:aws:ecs:ap-south-2:500766168750:cluster/hello-world-docker-cluster
+  allowSimultaneousDeployments: false
