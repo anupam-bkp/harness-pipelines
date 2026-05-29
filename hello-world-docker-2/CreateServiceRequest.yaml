@@ -1,5 +1,5 @@
 launchType: FARGATE
-serviceName: hello-world-docker-harness
+serviceName: hello-world-docker-harness2
 desiredCount: 2
 networkConfiguration:
   awsvpcConfiguration:
