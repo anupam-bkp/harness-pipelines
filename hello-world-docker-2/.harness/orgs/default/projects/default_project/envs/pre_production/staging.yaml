@@ -1,0 +1,8 @@
+environment:
+  name: staging
+  identifier: staging
+  description: ""
+  tags: {}
+  type: PreProduction
+  orgIdentifier: default
+  projectIdentifier: default_project
