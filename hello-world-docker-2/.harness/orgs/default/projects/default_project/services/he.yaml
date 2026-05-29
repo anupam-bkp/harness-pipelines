@@ -1,0 +1,24 @@
+service:
+  name: hello-world-docker-deploy2-service
+  identifier: helloworlddockerdeploy2service
+  serviceDefinition:
+    type: ECS
+    spec:
+      manifests:
+        - manifest:
+            identifier: CreateServiceRequest
+            type: EcsServiceDefinition
+            spec:
+              store:
+                type: Github
+                spec:
+                  connectorRef: account.Github_OAuth_1779478413335
+                  gitFetchType: Branch
+                  paths:
+                    - hello-world-docker-2
+                  repoName: anupam-bkp/harness-pipelines
+                  branch: main
+      ecsTaskDefinitionArn: arn:aws:ecs:ap-south-2:500766168750:task-definition/hello-world-docker-Task7:1
+  gitOpsEnabled: false
+  orgIdentifier: default
+  projectIdentifier: default_project
