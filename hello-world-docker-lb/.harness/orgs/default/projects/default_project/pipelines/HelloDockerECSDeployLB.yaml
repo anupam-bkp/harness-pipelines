@@ -43,5 +43,7 @@ pipeline:
                 - AllErrors
               action:
                 type: StageRollback
+        delegateSelectors:
+          - docker-delegate
   identifier: HelloDockerECSDeployLB
   name: HelloDockerECSDeployLB
