@@ -1,0 +1,13 @@
+infrastructureDefinition:
+  name: HelloWorldDockerECSDeployInfra
+  identifier: HelloWorldDockerECSDeployInfra
+  orgIdentifier: default
+  projectIdentifier: default_project
+  environmentRef: helloworldecsdeploylbenv
+  deploymentType: ECS
+  type: ECS
+  spec:
+    connectorRef: awsecrconnector1
+    region: ap-south-2
+    cluster: hello-world-docker-cluster
+  allowSimultaneousDeployments: false
