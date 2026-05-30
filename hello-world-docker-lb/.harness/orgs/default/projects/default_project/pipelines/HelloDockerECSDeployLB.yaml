@@ -11,14 +11,14 @@ pipeline:
         spec:
           deploymentType: ECS
           service:
-            serviceRef: HelloDockerEcsDeploy2Service
+            serviceRef: HelloWorldDockerECSDeployLBService
             gitBranch: main
           environment:
-            environmentRef: preprod
+            environmentRef: helloworldecsdeploylbenv
             gitBranch: main
             deployToAll: false
             infrastructureDefinitions:
-              - identifier: helloDockerEcsDeploy2Infra
+              - identifier: HelloWorldDockerECSDeployInfra
           execution:
             steps:
               - step:
@@ -26,7 +26,9 @@ pipeline:
                   identifier: ecsRollingDeploy
                   type: EcsRollingDeploy
                   timeout: 10m
-                  spec: {}
+                  spec:
+                    sameAsAlreadyRunningInstances: false
+                    forceNewDeployment: false
             rollbackSteps:
               - step:
                   name: ECS Rolling Rollback
@@ -41,7 +43,5 @@ pipeline:
                 - AllErrors
               action:
                 type: StageRollback
-        delegateSelectors:
-          - docker-delegate
   identifier: HelloDockerECSDeployLB
   name: HelloDockerECSDeployLB
