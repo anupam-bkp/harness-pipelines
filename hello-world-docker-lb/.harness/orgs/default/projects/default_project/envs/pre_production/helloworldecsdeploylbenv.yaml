@@ -1,0 +1,8 @@
+environment:
+  name: helloworldecsdeploylbenv
+  identifier: helloworldecsdeploylbenv
+  description: ""
+  tags: {}
+  type: PreProduction
+  orgIdentifier: default
+  projectIdentifier: default_project
