@@ -1,15 +1,217 @@
-launchType: FARGATE
-serviceName: helloDockerEcsDeployLBService
-desiredCount: 2
-networkConfiguration:
-  awsvpcConfiguration:
-    securityGroups:
-      - sg-0a2aae848ee9674f0
-    subnets:
-      - subnet-0d7bdf8787830c42f
-      - subnet-013ae81e3332de9e7
-      - subnet-0325b3e82b090052d
-    assignPublicIp: ENABLED
-deploymentConfiguration:
-  maximumPercent: 200
-  minimumHealthyPercent: 100
+{
+    "services": [
+        {
+            "serviceArn": "arn:aws:ecs:ap-south-2:500766168750:service/hello-world-docker-cluster/hello-world-docker-Task7-service-88j13zy6",
+            "serviceName": "hello-world-docker-Task7-service-88j13zy6",
+            "clusterArn": "arn:aws:ecs:ap-south-2:500766168750:cluster/hello-world-docker-cluster",
+            "loadBalancers": [
+                {
+                    "targetGroupArn": "arn:aws:elasticloadbalancing:ap-south-2:500766168750:targetgroup/hello-world-docker-tg7/9565961a0f2c67fa",
+                    "containerName": "hello-world-docker-container7",
+                    "containerPort": 8080
+                }
+            ],
+            "serviceRegistries": [],
+            "status": "ACTIVE",
+            "desiredCount": 0,
+            "runningCount": 0,
+            "pendingCount": 0,
+            "capacityProviderStrategy": [
+                {
+                    "capacityProvider": "FARGATE",
+                    "weight": 1,
+                    "base": 0
+                }
+            ],
+            "platformVersion": "LATEST",
+            "platformFamily": "Linux",
+            "taskDefinition": "arn:aws:ecs:ap-south-2:500766168750:task-definition/hello-world-docker-Task7:1",
+            "deploymentConfiguration": {
+                "deploymentCircuitBreaker": {
+                    "enable": true,
+                    "rollback": true
+                },
+                "maximumPercent": 200,
+                "minimumHealthyPercent": 100,
+                "strategy": "ROLLING",
+                "bakeTimeInMinutes": 0
+            },
+            "deployments": [
+                {
+                    "id": "ecs-svc/7989190290255126328",
+                    "status": "PRIMARY",
+                    "taskDefinition": "arn:aws:ecs:ap-south-2:500766168750:task-definition/hello-world-docker-Task7:1",
+                    "desiredCount": 0,
+                    "pendingCount": 0,
+                    "runningCount": 0,
+                    "failedTasks": 0,
+                    "createdAt": "2026-05-28T10:41:08.368000+00:00",
+                    "updatedAt": "2026-05-28T18:55:52.060000+00:00",
+                    "capacityProviderStrategy": [
+                        {
+                            "capacityProvider": "FARGATE",
+                            "weight": 1,
+                            "base": 0
+                        }
+                    ],
+                    "platformVersion": "1.4.0",
+                    "platformFamily": "Linux",
+                    "networkConfiguration": {
+                        "awsvpcConfiguration": {
+                            "subnets": [
+                                "subnet-0d7bdf8787830c42f",
+                                "subnet-013ae81e3332de9e7",
+                                "subnet-0325b3e82b090052d"
+                            ],
+                            "securityGroups": [
+                                "sg-0a2aae848ee9674f0"
+                            ],
+                            "assignPublicIp": "ENABLED"
+                        }
+                    },
+                    "rolloutState": "COMPLETED",
+                    "rolloutStateReason": "ECS deployment ecs-svc/7989190290255126328 completed."
+                }
+            ],
+            "roleArn": "arn:aws:iam::500766168750:role/aws-service-role/ecs.amazonaws.com/AWSServiceRoleForECS",
+            "events": [
+                {
+                    "id": "ff84430d-40bd-4d8e-b224-d72dff9988f2",
+                    "createdAt": "2026-05-30T15:50:33.276000+00:00",
+                    "message": "(service hello-world-docker-Task7-service-88j13zy6) has reached a steady state."
+                },
+                {
+                    "id": "67403f9d-84bc-4808-808d-a16d43a27168",
+                    "createdAt": "2026-05-30T09:50:17.471000+00:00",
+                    "message": "(service hello-world-docker-Task7-service-88j13zy6) has reached a steady state."
+                },
+                {
+                    "id": "319aec93-a20f-4557-99ae-85f13e6245bd",
+                    "createdAt": "2026-05-30T03:49:37.346000+00:00",
+                    "message": "(service hello-world-docker-Task7-service-88j13zy6) has reached a steady state."
+                },
+                {
+                    "id": "d17ecdd7-6bf4-490e-89fa-e7ef8cb01b74",
+                    "createdAt": "2026-05-30T02:16:19.936000+00:00",
+                    "message": "(service hello-world-docker-Task7-service-88j13zy6) has reached a steady state."
+                },
+                {
+                    "id": "96ca124d-5c97-413d-8deb-381aa34fa249",
+                    "createdAt": "2026-05-29T22:57:06.517000+00:00",
+                    "message": "(service hello-world-docker-Task7-service-88j13zy6) has reached a steady state."
+                },
+                {
+                    "id": "aef40dcd-4f3c-4a93-b973-eb024afe5086",
+                    "createdAt": "2026-05-29T18:57:31.073000+00:00",
+                    "message": "(service hello-world-docker-Task7-service-88j13zy6) has reached a steady state."
+                },
+                {
+                    "id": "618bb3ab-0c6e-4356-b0fe-28037c6a3f49",
+                    "createdAt": "2026-05-29T12:56:45.927000+00:00",
+                    "message": "(service hello-world-docker-Task7-service-88j13zy6) has reached a steady state."
+                },
+                {
+                    "id": "9fa10889-976e-493a-8789-f064911c7c0c",
+                    "createdAt": "2026-05-29T06:56:01.976000+00:00",
+                    "message": "(service hello-world-docker-Task7-service-88j13zy6) has reached a steady state."
+                },
+                {
+                    "id": "ec5517ee-a03e-45ce-91cb-a9462331a840",
+                    "createdAt": "2026-05-29T00:55:56.192000+00:00",
+                    "message": "(service hello-world-docker-Task7-service-88j13zy6) has reached a steady state."
+                },
+                {
+                    "id": "292b437b-e4cc-4bce-9412-e98684ab84d0",
+                    "createdAt": "2026-05-28T18:55:52.067000+00:00",
+                    "message": "(service hello-world-docker-Task7-service-88j13zy6) has reached a steady state."
+                },
+                {
+                    "id": "f495252d-9232-4387-b383-72ac706cdae4",
+                    "createdAt": "2026-05-28T18:55:52.055000+00:00",
+                    "message": "(service hello-world-docker-Task7-service-88j13zy6, taskSet ecs-svc/7989190290255126328) has begun draining connections on 2 tasks."
+                },
+                {
+                    "id": "a47fa88f-9c14-44ff-a7dc-a1414f8c96f0",
+                    "createdAt": "2026-05-28T18:55:52.051000+00:00",
+                    "message": "(service hello-world-docker-Task7-service-88j13zy6) deregistered 2 targets in (target-group arn:aws:elasticloadbalancing:ap-south-2:500766168750:targetgroup/hello-world-docker-tg7/9565961a0f2c67fa)"
+                },
+                {
+                    "id": "b068e757-e519-40ac-ab11-3a26518fe178",
+                    "createdAt": "2026-05-28T18:55:42.017000+00:00",
+                    "message": "(service hello-world-docker-Task7-service-88j13zy6) has stopped 2 running tasks: (task 9f64a5030a4e46d0a5c181964672996c) (task 160628ad8a6d4e81bb67e5f1e223b5b2)."
+                },
+                {
+                    "id": "cb549525-ac4b-4bd0-8b16-3b4819cf66a0",
+                    "createdAt": "2026-05-28T16:43:15.977000+00:00",
+                    "message": "(service hello-world-docker-Task7-service-88j13zy6) has reached a steady state."
+                },
+                {
+                    "id": "2672decd-8c6c-4920-ad3b-9fdd662fa13c",
+                    "createdAt": "2026-05-28T10:42:58.994000+00:00",
+                    "message": "(service hello-world-docker-Task7-service-88j13zy6) has reached a steady state."
+                },
+                {
+                    "id": "19fbbc4a-8fe7-4e33-ac8b-d29760599860",
+                    "createdAt": "2026-05-28T10:42:58.993000+00:00",
+                    "message": "(service hello-world-docker-Task7-service-88j13zy6) (deployment ecs-svc/7989190290255126328) deployment completed."
+                },
+                {
+                    "id": "fda7494f-cb9f-437b-870a-917ed9d3b840",
+                    "createdAt": "2026-05-28T10:42:48.589000+00:00",
+                    "message": "(service hello-world-docker-Task7-service-88j13zy6) registered 1 targets in (target-group arn:aws:elasticloadbalancing:ap-south-2:500766168750:targetgroup/hello-world-docker-tg7/9565961a0f2c67fa)"
+                },
+                {
+                    "id": "8233c493-daad-4ea1-ae70-126cd3f87d73",
+                    "createdAt": "2026-05-28T10:42:10.148000+00:00",
+                    "message": "(service hello-world-docker-Task7-service-88j13zy6) has started 1 tasks: (task 9f64a5030a4e46d0a5c181964672996c)."
+                },
+                {
+                    "id": "e832604c-7447-490a-9b36-b2fb277376ef",
+                    "createdAt": "2026-05-28T10:42:08.241000+00:00",
+                    "message": "(service hello-world-docker-Task7-service-88j13zy6) registered 1 targets in (target-group arn:aws:elasticloadbalancing:ap-south-2:500766168750:targetgroup/hello-world-docker-tg7/9565961a0f2c67fa)"
+                },
+                {
+                    "id": "5817fa4a-2784-466c-b550-f6948239b20c",
+                    "createdAt": "2026-05-28T10:41:28.572000+00:00",
+                    "message": "(service hello-world-docker-Task7-service-88j13zy6) has started 1 tasks: (task 160628ad8a6d4e81bb67e5f1e223b5b2)."
+                }
+            ],
+            "createdAt": "2026-05-28T10:41:08.368000+00:00",
+            "currentServiceRevisions": [
+                {
+                    "arn": "arn:aws:ecs:ap-south-2:500766168750:service-revision/hello-world-docker-cluster/hello-world-docker-Task7-service-88j13zy6/7989190290255126328",
+                    "requestedTaskCount": 0,
+                    "runningTaskCount": 0,
+                    "pendingTaskCount": 0
+                }
+            ],
+            "placementConstraints": [],
+            "placementStrategy": [],
+            "networkConfiguration": {
+                "awsvpcConfiguration": {
+                    "subnets": [
+                        "subnet-0d7bdf8787830c42f",
+                        "subnet-013ae81e3332de9e7",
+                        "subnet-0325b3e82b090052d"
+                    ],
+                    "securityGroups": [
+                        "sg-0a2aae848ee9674f0"
+                    ],
+                    "assignPublicIp": "ENABLED"
+                }
+            },
+            "healthCheckGracePeriodSeconds": 0,
+            "schedulingStrategy": "REPLICA",
+            "deploymentController": {
+                "type": "ECS"
+            },
+            "createdBy": "arn:aws:iam::500766168750:root",
+            "enableECSManagedTags": true,
+            "propagateTags": "NONE",
+            "enableExecuteCommand": false,
+            "availabilityZoneRebalancing": "ENABLED",
+            "resourceManagementType": "CUSTOMER"
+        }
+    ],
+    "failures": []
+}
