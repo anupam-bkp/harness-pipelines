@@ -15,7 +15,7 @@ service:
                   connectorRef: account.Github_OAuth_1779478413335
                   gitFetchType: Branch
                   paths:
-                    - hello-world-docker-lb/ServiceRequest.yaml
+                    - hello-world-docker-lb/ServiceDef.json
                   repoName: anupam-bkp/harness-pipelines
                   branch: main
       ecsTaskDefinitionArn: arn:aws:ecs:ap-south-2:500766168750:task-definition/hello-world-docker-Task7:1
