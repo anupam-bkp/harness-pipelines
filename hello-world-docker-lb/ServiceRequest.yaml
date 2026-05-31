@@ -11,9 +11,9 @@ networkConfiguration:
       - subnet-0325b3e82b090052d
     assignPublicIp: ENABLED
 loadBalancers:
-    targetGroupArn: arn:aws:elasticloadbalancing:ap-south-2:500766168750:targetgroup/hello-world-docker-tg7/9565961a0f2c67fa
-    containerName: hello-world-docker-container7
-    containerPort: 8080
+    - targetGroupArn: arn:aws:elasticloadbalancing:ap-south-2:500766168750:targetgroup/hello-world-docker-tg7/9565961a0f2c67fa
+      containerName: hello-world-docker-container7
+      containerPort: 8080
 deploymentConfiguration:
   maximumPercent: 200
   minimumHealthyPercent: 100
