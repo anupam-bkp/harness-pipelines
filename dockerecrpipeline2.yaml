@@ -36,7 +36,7 @@ pipeline:
                   name: BuildAndPushECR_1
                   identifier: BuildAndPushECR_1
                   spec:
-                    connectorRef: awsecrconnector1
+                    connectorRef: awsecrconnector2
                     region: ap-south-2
                     account: "500766168750"
                     imageName: learner/hello-world-docker
